@@ -15,6 +15,6 @@ socket.setsockopt_string(zmq.SUBSCRIBE,bpm_name)
 
 while True:
     msg = socket.recv_string()
-    print msg
+    print "%s received at %s" %(msg,datetime.datetime.now())
 
 
