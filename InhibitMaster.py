@@ -44,13 +44,13 @@ while True:
         print "TMP_STATUS=%s, GlobalStatus=%s" % (tmp_status,current_status)
         if tmp_status!=current_status:
             current_status=tmp_status
-            send_socket.send_string("%s_*_%s_*_%s" % ("BPM-GLOBAL",current_status,datetime.datetime.now()))
+            send_socket.send_string("%s_*_%s_*_%s" % ("IM-GLOBAL",current_status,datetime.datetime.now()))
             timelast = datetime.datetime.now()
         current_status=tmp_status
     print("\tGlobalStatus = %s" % current_status)
     timenow = datetime.datetime.now()
     diff = timenow - timelast
     if diff.seconds>send_freq_sec:
-        send_socket.send_string("%s_*_%s_*_%s" % ("BPM-GLOBAL",current_status,datetime.datetime.now()))
+        send_socket.send_string("%s_*_%s_*_%s" % ("IM-GLOBAL",current_status,datetime.datetime.now()))
         timelast = timenow
 
